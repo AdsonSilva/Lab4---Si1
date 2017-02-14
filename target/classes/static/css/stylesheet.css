@@ -1,0 +1,51 @@
+body{
+    margin: 30px 30px 30px 30px;
+}
+
+
+#textPercent {
+    margin-left: 40%;
+}
+
+a:link#customDeletebutton, a:visited#customDeletebutton {
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover#customDeletebutton, a:active#customDeletebutton {
+    background-color: white;
+    color: red;
+}
+
+a:link#custombutton, a:visited#custombutton {
+    background-color: #5cb85c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover#custombutton, a:active#custombutton {
+    background-color: white;
+    color: #5cb85c;
+}
+
+
+.bigButton{
+    margin-bottom: 10px;
+    padding: 14px 25px;
+}
+
+.taskContent{
+    margin: 10px 10px 10px 10px;
+}
+
+.deleteTask {
+    float: right;
+    color: red;
+}

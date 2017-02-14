@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head >
+    <script th:src="@{/js/index.js}" th:href="@{/js/index.js}"></script>
+    <th:block th:include="geral/head :: head"></th:block>
+</head>
+
+<body>
+
+<div>
+    <div class="row" id="principalLayout">
+        <div class="col-md-2 todoLists">
+            <div class="list-group">
+                <a class="bigButton" id="custombutton" th:href="@{'todoList/createTodo'}">Create a new Todo List</a>
+                <a class="bigButton" id="customDeletebutton" th:href="@{'deleteAll'}">Delete all Todo Lists</a>
+            </div>
+        </div>
+
+        <div class="col-md-9 container">
+            <div class="row">
+                <div class="page-header">
+                    <h1>Wellcome :)</h1>
+                    <h1>Choose a Todo List or create a new one</h1>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownTodoLists"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Options
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a id="changeBackground" th:href="${'javascript:changeBG()'}">Change background color</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="increaseFont" th:href="${'javascript:increaseFont()'}">Increase Font</a></li>
+                            <li><a id="decreaseFont" th:href="${'javascript:decreaseFont()'}">Decrease Font</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="reset" th:href="${'javascript:reset()'}">Reset</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <ul th:each="todoList : ${todoLists}">
+                    <a class="col-md-2 bigButton" id="custombutton" th:text="${todoList.name}"
+                       th:href="@{'/task/getByList/' + ${todoList.id}}"></a>
+                    <a class="col-md-2 col-md-offset-8 bigButton" id="customDeletebutton" th:text="Delete"
+                       th:href="@{'/deleteTodoList/' + ${todoList.id}}"></a>
+
+
+                </ul>
+
+            </div>
+            <h1 th:text="'You have '+ ${tasksNotCompleteds} +' tasks to do'"></h1>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
